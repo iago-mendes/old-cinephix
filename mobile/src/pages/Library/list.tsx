@@ -7,13 +7,14 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import styles from './styles'
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native'
 import api from '../../services/api'
+import ListItem from './components/ListItem'
 
 type ParamList =
 {
     List: {category: string}
 }
 
-interface Item
+export interface Item
 {
     id: number
     name: string
@@ -39,17 +40,14 @@ const List = () =>
             source={require('../../assets/background.png')}
             style={styles.container}
         >
-            <View /*style={/styles.backButtonContainer}*/>
-                <BorderlessButton onPress={() => goBack()}>
+            <View style={styles.backButtonContainer}>
+                <BorderlessButton onPress={() => goBack()} style={styles.backButton} >
                     <FontAwesome5 name="arrow-left" size={24} color={"#D4D4F7"} />
                 </BorderlessButton>
             </View>
-            <View>
+            <View style={styles.list}>
                 {list.map(item => (
-                    <RectButton key={item.id} onPress={() => {}}>
-                        <Image source={{uri: item.image}} style={{height: 50, width: 50}} />
-                        <Text>{item.name}</Text>
-                    </RectButton>
+                    <ListItem key={item.id} item={item} category={params.category} />
                 ))}
             </View>
         </ImageBackground>
