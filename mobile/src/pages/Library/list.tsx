@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { ImageBackground, View, Image, Text } from 'react-native'
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler'
-
-import { FontAwesome5 } from '@expo/vector-icons'
+import { ImageBackground, View } from 'react-native'
+import { useRoute, RouteProp } from '@react-navigation/native'
 
 import styles from './styles'
-import { useNavigation, useRoute, RouteProp } from '@react-navigation/native'
 import api from '../../services/api'
 import ListItem from './components/ListItem'
+import BackButton from './components/BackButton'
 
 type ParamList =
 {
@@ -28,7 +26,6 @@ const List = () =>
 {
     const {params} = useRoute<RouteProp<ParamList, 'List'>>()
     const [list, setList] = useState<Item[]>([])
-    const {goBack} = useNavigation()
 
     useEffect(() =>
     {
@@ -40,11 +37,7 @@ const List = () =>
             source={require('../../assets/background.png')}
             style={styles.container}
         >
-            <View style={styles.backButtonContainer}>
-                <BorderlessButton onPress={() => goBack()} style={styles.backButton} >
-                    <FontAwesome5 name="arrow-left" size={24} color={"#D4D4F7"} />
-                </BorderlessButton>
-            </View>
+            <BackButton />
             <View style={styles.list}>
                 {list.map(item => (
                     <ListItem key={item.id} item={item} category={params.category} />

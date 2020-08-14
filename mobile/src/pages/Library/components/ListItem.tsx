@@ -16,13 +16,13 @@ const ListItem: React.FC<ItemProps> = ({item, category}) =>
 {
     const {navigate} = useNavigation()
 
-    function navigateToView()
+    function navigateToItem()
     {
-        navigate('View', {category, id: item.id})
+        navigate('Item', {category, id: item.id})
     }
 
     return (
-        <RectButton onPress={navigateToView} style={styles.listItem}>
+        <RectButton onPress={navigateToItem} style={styles.listItem}>
             <Image source={{uri: item.image}} style={styles.listItemImage} />
             <Text style={styles.listItemName} >{item.name}</Text>
         </RectButton>

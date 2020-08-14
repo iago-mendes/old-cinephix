@@ -92,6 +92,21 @@ const styles = StyleSheet.create(
         textAlignVertical: 'center',
         fontSize: 20,
         width: 200
+    },
+
+    // item
+
+    infoContainer:
+    {
+        flex: 1,
+        alignItems: 'center'
+    },
+
+    itemImage:
+    {
+        height: 300,
+        width: 300,
+        borderRadius: 25
     }
 })
 
