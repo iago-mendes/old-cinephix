@@ -1,0 +1,1 @@
+module.exports = {base_url: 'http://10.0.0.105:1712/'}
