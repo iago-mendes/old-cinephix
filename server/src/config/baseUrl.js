@@ -1,1 +1,1 @@
-module.exports = {base_url: 'http://10.0.0.105:1712/'}
+module.exports = {base_url: 'http://192.168.0.114:1712/'}
