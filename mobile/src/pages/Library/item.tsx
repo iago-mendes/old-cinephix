@@ -53,6 +53,8 @@ const Item = () =>
                                     key={`${character.id}-${media.id}`}
                                     relation1={character}
                                     relation2={media}
+                                    category1='characters'
+                                    category2='media'
                                 />
                             ))}
                             {info.celebrities_media?.map(({celebrity, media}) => (
@@ -60,6 +62,8 @@ const Item = () =>
                                     key={`${celebrity.id}-${media.id}`}
                                     relation1={celebrity}
                                     relation2={media}
+                                    category1='celebrities'
+                                    category2='media'
                                 />
                             ))}
                             {info.celebrities_characters?.map(({celebrity, character}) => (
@@ -67,6 +71,8 @@ const Item = () =>
                                     key={`${celebrity.id}-${character.id}`}
                                     relation1={celebrity}
                                     relation2={character}
+                                    category1='celebrities'
+                                    category2='characters'
                                 />
                             ))}
                         </View>
