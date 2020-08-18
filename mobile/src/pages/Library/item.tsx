@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { View, Image } from 'react-native'
+import {ScrollView, View, Image, Text } from 'react-native'
 import { useRoute, RouteProp } from '@react-navigation/native'
 
 import styles from './styles'
 import { Item as ItemInterface } from './list'
 import api from '../../services/api'
 import BackButton from './components/BackButton'
+import Relation from './components/Relation'
 
 type ParamsItem =
 {
@@ -34,11 +35,44 @@ const Item = () =>
     }, [params.id])
 
     return (
-        <View style={styles.container}>
-            <BackButton />
-            <View style={styles.infoContainer}>
-                <Image source={{uri: info.image}} style={styles.itemImage} />
-            </View>
+        <View style={styles.scrollContainer}>
+            <ScrollView>
+                <View style={styles.container}>
+                <BackButton />
+                    <View style={styles.infoContainer}>
+                        <Image source={{uri: info.image}} style={styles.itemImage} />
+                        <Text style={styles.itemName}>{info.name}</Text>
+                        <View style={styles.relationsContainer}>
+                            <Text style={styles.relationsTitle}>
+                                {info.characters_media && 'Characters & Media'}
+                                {info.celebrities_media && 'Celebrities & Media'}
+                                {info.celebrities_characters && 'Celebrities & Characters'}
+                            </Text>
+                            {info.characters_media?.map(({character, media}) => (
+                                <Relation
+                                    key={`${character.id}-${media.id}`}
+                                    relation1={character}
+                                    relation2={media}
+                                />
+                            ))}
+                            {info.celebrities_media?.map(({celebrity, media}) => (
+                                <Relation
+                                    key={`${celebrity.id}-${media.id}`}
+                                    relation1={celebrity}
+                                    relation2={media}
+                                />
+                            ))}
+                            {info.celebrities_characters?.map(({celebrity, character}) => (
+                                <Relation
+                                    key={`${celebrity.id}-${character.id}`}
+                                    relation1={celebrity}
+                                    relation2={character}
+                                />
+                            ))}
+                        </View>
+                    </View>
+                </View>
+            </ScrollView>
         </View>
     )
 }

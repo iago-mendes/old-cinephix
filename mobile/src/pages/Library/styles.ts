@@ -2,11 +2,17 @@ import {StyleSheet} from 'react-native'
 
 const styles = StyleSheet.create(
 {
+    scrollContainer:
+    {
+        backgroundColor: '#420C14',
+        flex: 1
+    },
+
     container:
     {
         backgroundColor: '#420C14',
         flex: 1,
-        padding: 35
+        padding: 25
     },
 
     promptContainer:
@@ -99,7 +105,8 @@ const styles = StyleSheet.create(
     infoContainer:
     {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'flex-start'
     },
 
     itemImage:
@@ -107,6 +114,67 @@ const styles = StyleSheet.create(
         height: 300,
         width: 300,
         borderRadius: 25
+    },
+
+    itemName:
+    {
+        color: '#FF8A00',
+        fontFamily: 'Ubuntu_700Bold',
+        fontSize: 25,
+        textAlign: 'center',
+
+        marginTop: 10
+    },
+
+    relationsContainer:
+    {
+        flex: 1,
+        marginTop: 10
+    },
+
+    relationsTitle:
+    {
+        color: '#FF8A00',
+        fontFamily: 'Ubuntu_700Bold',
+        fontSize: 20,
+        textAlign: 'center',
+
+        backgroundColor: '#26070B',
+        width: 300,
+        padding: 10
+    },
+
+    relationGroup:
+    {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 2.5
+    },
+
+    relationItem:
+    {
+        backgroundColor: '#26070B',
+        width: 148.75,
+
+        alignItems: 'center',
+        padding: 5
+    },
+
+    relationItemImage:
+    {
+        height: 50,
+        width: 50,
+        borderRadius: 10
+    },
+
+    relationItemName:
+    {
+        color: '#FF8A00',
+        fontFamily: 'Roboto_400Regular',
+        fontSize: 15,
+        textAlign: 'center',
+
+        marginTop: 5,
     }
 })
 
