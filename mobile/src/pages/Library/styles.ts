@@ -100,6 +100,44 @@ const styles = StyleSheet.create(
         marginLeft: 5
     },
 
+    //Filter Modal
+
+    modalView:
+    {
+        flex: 1,
+        marginVertical: 100,
+        marginHorizontal: 50,
+        borderRadius: 25,
+        padding: 15,
+        backgroundColor: '#FF8A00',
+
+        justifyContent: 'space-between'
+    },
+
+    modalButtonsContainer:
+    {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+
+    modalButton:
+    {
+        backgroundColor: '#420C14',
+        width: 100,
+        height: 50,
+        borderRadius: 20,
+
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    modalButtonText:
+    {
+        fontFamily: 'Ubuntu_700Bold',
+        fontSize: 20,
+        color: '#FF8A00'
+    },
+
     // ListItem
 
     listItem:
