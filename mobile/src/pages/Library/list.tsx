@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { ImageBackground, View } from 'react-native'
+import { ImageBackground, View, Text } from 'react-native'
 import { useRoute, RouteProp } from '@react-navigation/native'
+import { RectButton } from 'react-native-gesture-handler'
+
+import { FontAwesome5 } from '@expo/vector-icons'
 
 import styles from './styles'
 import api from '../../services/api'
@@ -38,6 +41,12 @@ const List = () =>
             style={styles.container}
         >
             <BackButton />
+            <View style={styles.filterContainer}>
+                <RectButton style={styles.filterButton}>
+                    <FontAwesome5 name="filter" size={20} color={'#420C14'} />
+                    <Text style={styles.filterText}>Filter</Text>
+                </RectButton>
+            </View>
             <View style={styles.list}>
                 {list.map(item => (
                     <ListItem key={item.id} item={item} category={params.category} />

@@ -59,7 +59,7 @@ const styles = StyleSheet.create(
 
     backButtonContainer:
     {
-        marginBottom: 15
+        marginTop: 15
     },
 
     backButton:
@@ -71,6 +71,33 @@ const styles = StyleSheet.create(
     list:
     {
         minHeight: 300
+    },
+
+    filterContainer:
+    {
+        alignItems: 'flex-end',
+        marginBottom: 15
+    },
+
+    filterButton:
+    {
+        width: 125,
+        height: 40,
+        backgroundColor: '#FF8A00',
+        borderRadius: 10,
+
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    filterText:
+    {
+        fontFamily: 'Ubuntu_700Bold',
+        fontSize: 25,
+        color: '#420C14',
+
+        marginLeft: 5
     },
 
     // ListItem
