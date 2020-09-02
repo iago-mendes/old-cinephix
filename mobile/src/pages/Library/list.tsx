@@ -9,6 +9,7 @@ import styles from './styles'
 import api from '../../services/api'
 import ListItem, { Item } from './components/ListItem'
 import BackButton from './components/BackButton'
+import Filter from './components/Filter'
 
 type ParamList =
 {
@@ -48,7 +49,7 @@ const List = () =>
                 animationType="slide"
             >
                 <View style={styles.modalView}>
-                    <Text>Hello, world!</Text>
+                    <Filter />
                     <View style={styles.modalButtonsContainer}>
                         <TouchableHighlight onPress={handleIsFilterVisible} style={styles.modalButton}>
                             <Text style={styles.modalButtonText}>Close</Text>
