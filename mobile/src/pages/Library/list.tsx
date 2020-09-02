@@ -7,22 +7,12 @@ import { FontAwesome5 } from '@expo/vector-icons'
 
 import styles from './styles'
 import api from '../../services/api'
-import ListItem from './components/ListItem'
+import ListItem, { Item } from './components/ListItem'
 import BackButton from './components/BackButton'
 
 type ParamList =
 {
     List: {category: string}
-}
-
-export interface Item
-{
-    id: number
-    name: string
-    image: string
-    isMovie?: boolean
-    isSeries?: boolean
-    isUniverse?: boolean
 }
 
 const List = () =>

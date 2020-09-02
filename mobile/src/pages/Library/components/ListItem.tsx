@@ -3,13 +3,22 @@ import { Image, Text } from 'react-native'
 import { RectButton } from 'react-native-gesture-handler'
 
 import styles from '../styles'
-import { Item } from '../list'
 import { useNavigation } from '@react-navigation/native'
 
 interface ItemProps
 {
     item: Item
     category: string
+}
+
+export interface Item
+{
+    id: number
+    name: string
+    image: string
+    isMovie?: boolean
+    isSeries?: boolean
+    isUniverse?: boolean
 }
 
 const ListItem: React.FC<ItemProps> = ({item, category}) =>
