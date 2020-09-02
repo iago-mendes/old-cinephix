@@ -9,7 +9,7 @@ import styles from './styles'
 import api from '../../services/api'
 import ListItem, { Item } from './components/ListItem'
 import BackButton from './components/BackButton'
-import Filter from './components/Filter'
+import Filter, { Filters } from './components/Filter'
 
 type ParamList =
 {
@@ -22,6 +22,7 @@ const List = () =>
     const [list, setList] = useState<Item[]>([])
 
     const [isFilterVisible, setIsFilterVisible] = useState(false)
+    const [filters, setFilters] = useState<Filters>({})
 
     useEffect(() =>
     {
@@ -49,7 +50,7 @@ const List = () =>
                 animationType="slide"
             >
                 <View style={styles.modalView}>
-                    <Filter />
+                    <Filter filters={filters} setFilters={setFilters} />
                     <View style={styles.modalButtonsContainer}>
                         <TouchableHighlight onPress={handleIsFilterVisible} style={styles.modalButton}>
                             <Text style={styles.modalButtonText}>Close</Text>
