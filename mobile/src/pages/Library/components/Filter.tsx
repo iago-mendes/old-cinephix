@@ -26,44 +26,51 @@ interface Classification
 interface FilterParams
 {
     filters: Filters
-    setFilters: Function
+    tmpFilters: Filters
+    setTmpFilters: Function
 }
 
-const Filter: React.FC<FilterParams> = ({filters, setFilters}) =>
+const Filter: React.FC<FilterParams> = ({filters, tmpFilters, setTmpFilters}) =>
 {
     const [classifications, setClassifications] = useState<Classification[]>([])
-
+    
     useEffect(() =>
     {
         api.get('classifications').then(res => setClassifications(res.data))
+        setTmpFilters(
+        {
+            keywords: filters.keywords,
+            type: filters.type,
+            classification: filters.classification
+        })
     }, [])
 
     function handleKeywordsChange(text: string)
     {
-        setFilters(
+        setTmpFilters(
         {
             keywords: text.split(' '),
-            type: filters.type,
-            classification: filters.classification
+            type: tmpFilters.type,
+            classification: tmpFilters.classification
         })
     }
 
     function handleTypeChange(value: string)
     {
-        setFilters(
+        setTmpFilters(
         {
-            keywords: filters.keywords,
+            keywords: tmpFilters.keywords,
             type: value,
-            classification: filters.classification
+            classification: tmpFilters.classification
         })
     }
 
     function handleClassificationChange(id: number)
     {
-        setFilters(
+        setTmpFilters(
         {
-            keywords: filters.keywords,
-            type: filters.type,
+            keywords: tmpFilters.keywords,
+            type: tmpFilters.type,
             classification: id
         })
     }
@@ -73,14 +80,14 @@ const Filter: React.FC<FilterParams> = ({filters, setFilters}) =>
             <View>
                 <Text>Keywords</Text>
                 <TextInput
-                    value={filters.keywords.join(' ')}
+                    value={tmpFilters.keywords.join(' ')}
                     onChangeText={text => handleKeywordsChange(text)}
                 />
             </View>
             <View>
                 <Text>Type of media</Text>
                 <Picker
-                    selectedValue={filters.type}
+                    selectedValue={tmpFilters.type}
                     onValueChange={value => handleTypeChange(value)}
                 >
                     <Picker.Item label={''} value={''} />
@@ -92,7 +99,7 @@ const Filter: React.FC<FilterParams> = ({filters, setFilters}) =>
             <View>
                 <Text>Media classification</Text>
                 <Picker
-                    selectedValue={filters.classification}
+                    selectedValue={tmpFilters.classification}
                     onValueChange={value => handleClassificationChange(value)}
                 >
                     <Picker.Item label={''} value={0} />

@@ -23,6 +23,7 @@ const List = () =>
 
     const [isFilterVisible, setIsFilterVisible] = useState(false)
     const [filters, setFilters] = useState<Filters>(defaultFilters)
+    const [tmpFilters, setTmpFilters] = useState<Filters>(defaultFilters)
 
     useEffect(() =>
     {
@@ -36,6 +37,7 @@ const List = () =>
 
     function handleApplyFilters()
     {
+        setFilters(tmpFilters)
         handleIsFilterVisible()
     }
 
@@ -50,7 +52,7 @@ const List = () =>
                 animationType="slide"
             >
                 <View style={styles.modalView}>
-                    <Filter filters={filters} setFilters={setFilters} />
+                    <Filter filters={filters} tmpFilters={tmpFilters} setTmpFilters={setTmpFilters} />
                     <View style={styles.modalButtonsContainer}>
                         <TouchableHighlight onPress={handleIsFilterVisible} style={styles.modalButton}>
                             <Text style={styles.modalButtonText}>Close</Text>
