@@ -20,6 +20,8 @@ const List = () =>
 {
     const {params} = useRoute<RouteProp<ParamList, 'List'>>()
     const [list, setList] = useState<Item[]>([])
+    const [filteredList, setFilteredList] = useState<Item[]>([])
+    const [keywords, setKeywords] = useState<string[]>([])
 
     const [isFilterVisible, setIsFilterVisible] = useState(false)
     const [filters, setFilters] = useState<Filters>(defaultFilters)
@@ -29,6 +31,22 @@ const List = () =>
     {
         api.get(`${params.category}`).then(res => setList(res.data))
     }, [])
+
+    useEffect(() =>
+    {
+        if (keywords.length === 0) setFilteredList(list)
+        else
+        {
+            var tmpList: Item[] = []
+            keywords.map(keyword =>
+            {
+                list.map(item =>
+                {
+                    if (item.name.search(keyword) !== -1) tmpList.push(item)
+                })
+            })
+        }
+    }, [keywords])
 
     function handleIsFilterVisible()
     {
