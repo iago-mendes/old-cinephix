@@ -9,7 +9,7 @@ import styles from './styles'
 import api from '../../services/api'
 import ListItem, { Item } from './components/ListItem'
 import BackButton from './components/BackButton'
-import Filter, { Filters } from './components/Filter'
+import Filter, { Filters, defaultFilters } from './components/Filter'
 
 type ParamList =
 {
@@ -22,7 +22,7 @@ const List = () =>
     const [list, setList] = useState<Item[]>([])
 
     const [isFilterVisible, setIsFilterVisible] = useState(false)
-    const [filters, setFilters] = useState<Filters>({})
+    const [filters, setFilters] = useState<Filters>(defaultFilters)
 
     useEffect(() =>
     {
