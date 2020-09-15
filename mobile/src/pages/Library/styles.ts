@@ -73,33 +73,6 @@ const styles = StyleSheet.create(
         minHeight: 300
     },
 
-    filterContainer:
-    {
-        alignItems: 'flex-end',
-        marginBottom: 15
-    },
-
-    filterButton:
-    {
-        width: 125,
-        height: 40,
-        backgroundColor: '#FF8A00',
-        borderRadius: 10,
-
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    filterText:
-    {
-        fontFamily: 'Ubuntu_700Bold',
-        fontSize: 25,
-        color: '#420C14',
-
-        marginLeft: 5
-    },
-
     searchContainer:
     {
         flexDirection: 'row',
@@ -123,44 +96,6 @@ const styles = StyleSheet.create(
         color: '#420C14',
         fontFamily: 'Ubuntu_700Bold',
         fontSize: 20
-    },
-
-    //Filter Modal
-
-    modalView:
-    {
-        flex: 1,
-        marginVertical: 100,
-        marginHorizontal: 50,
-        borderRadius: 25,
-        padding: 15,
-        backgroundColor: '#FF8A00',
-
-        justifyContent: 'space-between'
-    },
-
-    modalButtonsContainer:
-    {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-
-    modalButton:
-    {
-        backgroundColor: '#420C14',
-        width: 100,
-        height: 50,
-        borderRadius: 20,
-
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    modalButtonText:
-    {
-        fontFamily: 'Ubuntu_700Bold',
-        fontSize: 20,
-        color: '#FF8A00'
     },
 
     // ListItem
