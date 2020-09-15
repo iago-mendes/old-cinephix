@@ -57,15 +57,13 @@ const styles = StyleSheet.create(
         textAlign: 'center'
     },
 
-    backButtonContainer:
-    {
-        marginTop: 15
-    },
-
     backButton:
     {
-        height: 30,
-        width: 30
+        height: 50,
+        width: 50,
+
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     list:

@@ -10,11 +10,9 @@ const BackButton = () =>
     const {goBack} = useNavigation()
 
     return (
-        <View style={styles.backButtonContainer}>
-            <BorderlessButton onPress={() => goBack()} style={styles.backButton} >
-                <FontAwesome5 name="arrow-left" size={24} color={"#D4D4F7"} />
-            </BorderlessButton>
-        </View>
+        <BorderlessButton onPress={() => goBack()} style={styles.backButton} >
+            <FontAwesome5 name="arrow-left" size={30} color={"#D4D4F7"} />
+        </BorderlessButton>
     )
 }
 
