@@ -30,7 +30,14 @@ const List = () =>
     useEffect(() =>
     {
         api.get(`${params.category}`).then(res => setList(res.data))
+        // setKeywords([])
+        console.log('opened')
     }, [])
+
+    useEffect(() =>
+    {
+        setFilteredList(list)
+    }, [list])
 
     useEffect(() =>
     {
@@ -42,9 +49,11 @@ const List = () =>
             {
                 list.map(item =>
                 {
-                    if (item.name.search(keyword) !== -1) tmpList.push(item)
+                    var name = item.name.toLowerCase()
+                    if (name.search(keyword.toLowerCase()) !== -1) tmpList.push(item)
                 })
             })
+            setFilteredList(tmpList)
         }
     }, [keywords])
 
@@ -108,7 +117,7 @@ const List = () =>
                 />
             </View>
             <View style={styles.list}>
-                {list.map(item => (
+                {filteredList.map(item => (
                     <ListItem key={item.id} item={item} category={params.category} />
                 ))}
             </View>
