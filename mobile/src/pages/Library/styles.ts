@@ -100,6 +100,31 @@ const styles = StyleSheet.create(
         marginLeft: 5
     },
 
+    searchContainer:
+    {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+
+        backgroundColor: '#FF8A00',
+        paddingHorizontal: 10,
+
+        borderRadius: 25,
+        height: 40,
+        width: '100%',
+        marginBottom: 15,
+        marginTop: 10
+    },
+
+    search:
+    {
+        marginLeft: 10,
+        width: 260,
+        color: '#420C14',
+        fontFamily: 'Ubuntu_700Bold',
+        fontSize: 20
+    },
+
     //Filter Modal
 
     modalView:

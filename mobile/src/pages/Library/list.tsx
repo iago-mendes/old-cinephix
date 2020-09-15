@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ImageBackground, View, Text, Modal, TouchableHighlight } from 'react-native'
+import { ImageBackground, View, Text, Modal, TouchableHighlight, TextInput } from 'react-native'
 import { useRoute, RouteProp } from '@react-navigation/native'
 import { RectButton } from 'react-native-gesture-handler'
 
@@ -59,6 +59,12 @@ const List = () =>
         handleIsFilterVisible()
     }
 
+    function handleSearchChange(text: string)
+    {
+        const tmp = text.split(' ')
+        setKeywords(tmp)
+    }
+
     return (
         <ImageBackground
             source={require('../../assets/background.png')}
@@ -85,11 +91,21 @@ const List = () =>
                 </View>
             </Modal>
             <BackButton />
-            <View style={styles.filterContainer}>
+            {/* <View style={styles.filterContainer}>
                 <RectButton onPress={handleIsFilterVisible} style={styles.filterButton}>
                     <FontAwesome5 name="filter" size={20} color={'#420C14'} />
                     <Text style={styles.filterText}>Filter</Text>
                 </RectButton>
+            </View> */}
+            <View style={styles.searchContainer}>
+                <FontAwesome5 name="search" size={20} color={'#420C14'} />
+                <TextInput
+                    placeholder="Search"
+                    placeholderTextColor="#420C14"
+                    style={styles.search}
+                    value={keywords.join(' ')}
+                    onChangeText={text => handleSearchChange(text)}
+                />
             </View>
             <View style={styles.list}>
                 {list.map(item => (
