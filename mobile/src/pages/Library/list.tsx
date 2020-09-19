@@ -65,7 +65,7 @@ const List = () =>
                 <FontAwesome5 name="search" size={20} color={'#420C14'} />
                 <TextInput
                     placeholder="Search"
-                    placeholderTextColor="#420C14"
+                    placeholderTextColor="#84380d"
                     style={styles.search}
                     value={keywords.join(' ')}
                     onChangeText={text => handleSearchChange(text)}
